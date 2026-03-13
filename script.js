@@ -334,6 +334,32 @@
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
         }
+
+        /* Hero specialties list */
+        .specialties-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .specialty-item {
+            background: rgba(255,255,255,0.9);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .specialty-item {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -384,24 +410,41 @@
         <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     </div>
 
-    <!-- Hero Section -->
-    <section id="accueil" class="min-h-screen flex items-center justify-center pt-20 bg-gray-50">
+    <!-- Hero Section - VERSION PROFESSIONNELLE CHIC -->
+    <section id="accueil" class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-b from-gray-50 to-white">
         <div class="container mx-auto px-6 text-center">
             <div class="mb-8 flex justify-center">
                 <img src="https://i.ibb.co/HfVLPt82/creafida-logo.jpg" alt="Creafida Logo" class="logo-hero">
             </div>
-            <h1 class="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up font-script">
-                Creafida
+            
+            <!-- Titre principal chic -->
+            <h1 class="text-6xl md:text-9xl font-bold mb-4 animate-fade-in-up font-script tracking-wide">
+                Créafida
             </h1>
-            <p class="text-2xl md:text-3xl text-gray-600 mb-4 animate-fade-in-up delay-200 font-script">
+            
+            <!-- Sous-titre élégant -->
+            <p class="text-2xl md:text-4xl text-gray-700 mb-8 animate-fade-in-up delay-200 font-light tracking-widest uppercase">
                 Atelier de couture
             </p>
-            <p class="text-lg text-gray-500 mb-8 max-w-2xl mx-auto animate-fade-in-up delay-300 text-xl">
-                Spécialisé dans la retouche, la transformation, le modélisme, la finition et la conception
+            
+            <!-- Séparateur élégant -->
+            <div class="w-24 h-0.5 bg-black mx-auto mb-8 animate-fade-in delay-300"></div>
+            
+            <!-- Spécialités mises en avant -->
+            <p class="text-lg md:text-xl text-gray-600 mb-6 animate-fade-in-up delay-300 max-w-2xl mx-auto font-light">
+                Atelier spécialisé en :
             </p>
-            <div class="animate-fade-in-up delay-400">
-                <a href="#contact" class="btn-shine inline-block bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition-all hover:scale-105 text-lg">
-                    Me contacter
+            
+            <div class="specialties-list animate-fade-in-up delay-400">
+                <span class="specialty-item">Retouche</span>
+                <span class="specialty-item">Transformation</span>
+                <span class="specialty-item">Création sur mesure</span>
+                <span class="specialty-item">Robes de cérémonie</span>
+            </div>
+            
+            <div class="mt-12 animate-fade-in-up delay-500">
+                <a href="#contact" class="btn-shine inline-block bg-black text-white px-10 py-4 rounded-full hover:bg-gray-800 transition-all hover:scale-105 text-lg tracking-wide">
+                    Prendre rendez-vous
                 </a>
             </div>
         </div>
@@ -438,37 +481,37 @@
                     <p class="text-gray-600 text-lg">Donnez une seconde vie à vos vêtements préférés.</p>
                 </div>
 
-                <!-- Service 3: Modélisme -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Modélisme')">
+                <!-- Service 3: Création sur mesure -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Création sur mesure')">
                     <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Modélisme</h3>
-                    <p class="text-gray-600 text-lg">Création de patrons sur mesure pour des pièces uniques.</p>
+                    <h3 class="text-2xl font-bold mb-3 font-script">Création sur mesure</h3>
+                    <p class="text-gray-600 text-lg">Des pièces uniques confectionnées selon vos envies.</p>
                 </div>
 
-                <!-- Service 4: Finition -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Finition')">
+                <!-- Service 4: Robes de cérémonie -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Robes de cérémonie')">
                     <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Finition</h3>
-                    <p class="text-gray-600 text-lg">Finitions haut de gamme pour des créations impeccables.</p>
+                    <h3 class="text-2xl font-bold mb-3 font-script">Robes de cérémonie</h3>
+                    <p class="text-gray-600 text-lg">Mariage, soirée, événements : l'élégance sur mesure.</p>
                 </div>
 
-                <!-- Service 5: Conception -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Conception')">
+                <!-- Service 5: Modélisme -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Modélisme')">
                     <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Conception</h3>
-                    <p class="text-gray-600 text-lg">Design et création de vêtements personnalisés.</p>
+                    <h3 class="text-2xl font-bold mb-3 font-script">Modélisme</h3>
+                    <p class="text-gray-600 text-lg">Création de patrons sur mesure pour des pièces uniques.</p>
                 </div>
 
                 <!-- Service 6: Conseil -->
@@ -694,7 +737,7 @@
                 ============================================================ -->
                 <div class="store-image-wrapper scroll-hidden">
                     <div class="store-image-container">
-                        <img src="https://i.ibb.co/TBGPXbHM/IMG-6335.jpg" 
+                        <img src="creafida-devanture.jpg"
                              alt="Devanture du magasin Creafida à Haccourt">
                     </div>
                 </div>
@@ -708,7 +751,7 @@
     <footer class="bg-black text-white py-8 border-t border-white border-opacity-10">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
             <div class="text-3xl font-bold tracking-tighter mb-4 md:mb-0 font-script">
-                Creafida
+                Créafida
             </div>
             <div class="text-gray-400 text-base mb-4 md:mb-0">
                 © 2026 Créafida. Tous droits réservés.
@@ -772,9 +815,9 @@
                         <option value="">Choisir un service</option>
                         <option value="Retouche">Retouche</option>
                         <option value="Transformation">Transformation</option>
+                        <option value="Création sur mesure">Création sur mesure</option>
+                        <option value="Robes de cérémonie">Robes de cérémonie</option>
                         <option value="Modélisme">Modélisme</option>
-                        <option value="Finition">Finition</option>
-                        <option value="Conception">Conception</option>
                         <option value="Conseil">Conseil</option>
                     </select>
                 </div>
