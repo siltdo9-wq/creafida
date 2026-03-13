@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creafida - Atelier de couture</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Parisienne&display=swap" rel="stylesheet">
     <style>
         * {
             font-family: 'Cormorant Garamond', serif;
@@ -13,6 +13,12 @@
         
         .font-script {
             font-family: 'Parisienne', cursive;
+        }
+        
+        /* Police pour le logo style Bodoni/Didot */
+        .font-logo {
+            font-family: 'Bodoni Moda', serif;
+            font-optical-sizing: auto;
         }
         
         /* Animations */
@@ -271,21 +277,65 @@
             color: #000;
         }
 
-        /* Logo styles - sans effet bouton */
-        .logo-img {
-            height: 50px;
-            width: 50px;
-            object-fit: contain;
-            border-radius: 50%;
-            display: block;
+        /* Logo styles - TEXTE BODONI MODA */
+        .logo-text-nav {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            line-height: 1;
+            color: #000;
         }
         
-        .logo-hero {
-            width: 128px;
-            height: 128px;
-            object-fit: contain;
-            border-radius: 50%;
+        .logo-text-nav .subtitle {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
             display: block;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+        
+        .logo-text-hero {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 5rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            line-height: 1;
+            color: #000;
+            text-align: center;
+        }
+        
+        .logo-text-hero .subtitle {
+            font-size: 1rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            display: block;
+            margin-top: 1rem;
+            font-weight: 400;
+        }
+
+        /* Service Icon Styles */
+        .service-icon-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            border-radius: 16px;
+            overflow: hidden;
+            padding: 20px;
+        }
+        
+        .service-icon-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: contrast(1.1);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         /* Map container styles */
@@ -309,7 +359,7 @@
             filter: grayscale(0%);
         }
 
-        /* Store image container - À MODIFIER AVEC VOTRE IMAGE */
+        /* Store image container */
         .store-image-wrapper {
             margin-top: 3rem;
             display: flex;
@@ -330,7 +380,6 @@
             width: 100%;
             height: auto;
             display: block;
-            /* Optimisations pour netteté */
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
         }
@@ -359,6 +408,24 @@
                 font-size: 1rem;
                 padding: 0.5rem 1rem;
             }
+            
+            .logo-text-hero {
+                font-size: 3rem;
+            }
+            
+            .logo-text-hero .subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .logo-text-nav {
+                font-size: 1.2rem;
+            }
+
+            .service-icon-wrapper {
+                width: 100px;
+                height: 100px;
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -368,7 +435,10 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-white">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="animate-fade-in">
-                <img src="https://i.ibb.co/HfVLPt82/creafida-logo.jpg" alt="Creafida Logo" class="logo-img">
+                <a href="#accueil" class="logo-text-nav">
+                    CREAFIDA
+                    <span class="subtitle">COUTURE</span>
+                </a>
             </div>
             <div class="hidden md:flex space-x-8 animate-fade-in delay-200 text-lg font-semibold">
                 <a href="#accueil" class="hover:text-gray-600 transition-colors relative group">
@@ -377,10 +447,6 @@
                 </a>
                 <a href="#services" class="hover:text-gray-600 transition-colors relative group">
                     Services
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#portfolio" class="hover:text-gray-600 transition-colors relative group">
-                    Portfolio
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a href="#apropos" class="hover:text-gray-600 transition-colors relative group">
@@ -405,30 +471,19 @@
         <span class="mobile-menu-close" onclick="closeMobileMenu()">&times;</span>
         <a href="#accueil" onclick="closeMobileMenu()">Accueil</a>
         <a href="#services" onclick="closeMobileMenu()">Services</a>
-        <a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a>
         <a href="#apropos" onclick="closeMobileMenu()">À propos</a>
         <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     </div>
 
-    <!-- Hero Section - VERSION PROFESSIONNELLE CHIC -->
+    <!-- Hero Section - VERSION AVEC TEXTE LOGO -->
     <section id="accueil" class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-b from-gray-50 to-white">
         <div class="container mx-auto px-6 text-center">
-            <div class="mb-8 flex justify-center">
-                <img src="https://i.ibb.co/HfVLPt82/creafida-logo.jpg" alt="Creafida Logo" class="logo-hero">
+            <div class="mb-12 animate-fade-in-up">
+                <h1 class="logo-text-hero">
+                    CREAFIDA
+                    <span class="subtitle">COUTURE</span>
+                </h1>
             </div>
-            
-            <!-- Titre principal chic -->
-            <h1 class="text-6xl md:text-9xl font-bold mb-4 animate-fade-in-up font-script tracking-wide">
-                Créafida
-            </h1>
-            
-            <!-- Sous-titre élégant -->
-            <p class="text-2xl md:text-4xl text-gray-700 mb-8 animate-fade-in-up delay-200 font-light tracking-widest uppercase">
-                Atelier de couture
-            </p>
-            
-            <!-- Séparateur élégant -->
-            <div class="w-24 h-0.5 bg-black mx-auto mb-8 animate-fade-in delay-300"></div>
             
             <!-- Spécialités mises en avant -->
             <p class="text-lg md:text-xl text-gray-600 mb-6 animate-fade-in-up delay-300 max-w-2xl mx-auto font-light">
@@ -458,133 +513,57 @@
                 <div class="w-16 h-1 bg-black mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1: Retouche -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Retouche')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                        </svg>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Service 1: Retouches -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer text-center" onclick="openDevisModal('Retouches')">
+                    <div class="service-icon-wrapper">
+                        <img src="https://i.ibb.co/zh0jhv6M/IMG-6339.jpg" alt="Retouches" loading="lazy">
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Retouche</h3>
+                    <h3 class="text-2xl font-bold mb-3 font-script">Retouches</h3>
                     <p class="text-gray-600 text-lg">Ajustements précis pour un tombé parfait de vos vêtements.</p>
                 </div>
 
-                <!-- Service 2: Transformation -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Transformation')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                        </svg>
+                <!-- Service 2: Transformations -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer text-center" onclick="openDevisModal('Transformations')">
+                    <div class="service-icon-wrapper">
+                        <img src="https://i.ibb.co/LXrGbvN0/IMG-6340.jpg" alt="Transformations" loading="lazy">
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Transformation</h3>
+                    <h3 class="text-2xl font-bold mb-3 font-script">Transformations</h3>
                     <p class="text-gray-600 text-lg">Donnez une seconde vie à vos vêtements préférés.</p>
                 </div>
 
                 <!-- Service 3: Création sur mesure -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Création sur mesure')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                        </svg>
+                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer text-center" onclick="openDevisModal('Création sur mesure')">
+                    <div class="service-icon-wrapper">
+                        <img src="https://i.ibb.co/XZ9tLdTt/IMG-6341.jpg" alt="Création sur mesure" loading="lazy">
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Création sur mesure</h3>
+                    <h3 class="text-2xl font-bold mb-3 font-script">Création<br>sur mesure</h3>
                     <p class="text-gray-600 text-lg">Des pièces uniques confectionnées selon vos envies.</p>
                 </div>
 
-                <!-- Service 4: Robes de cérémonie -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Robes de cérémonie')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                        </svg>
+                <!-- Service 4: Patronage / modélisme -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer text-center" onclick="openDevisModal('Patronage / modélisme')">
+                    <div class="service-icon-wrapper">
+                        <img src="https://i.ibb.co/zHtc7pjY/IMG-6342.jpg" alt="Patronage / modélisme" loading="lazy">
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Robes de cérémonie</h3>
-                    <p class="text-gray-600 text-lg">Mariage, soirée, événements : l'élégance sur mesure.</p>
-                </div>
-
-                <!-- Service 5: Modélisme -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Modélisme')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Modélisme</h3>
+                    <h3 class="text-2xl font-bold mb-3 font-script">Patronage /<br>modélisme</h3>
                     <p class="text-gray-600 text-lg">Création de patrons sur mesure pour des pièces uniques.</p>
                 </div>
 
-                <!-- Service 6: Conseil -->
-                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Conseil')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                <!-- Service 5: Robes de cérémonie -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer text-center" onclick="openDevisModal('Robes de cérémonie')">
+                    <div class="service-icon-wrapper">
+                        <img src="https://i.ibb.co/Cpwms2JK/IMG-6343.jpg" alt="Robes de cérémonie" loading="lazy">
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 font-script">Conseil</h3>
-                    <p class="text-gray-600 text-lg">Accompagnement personnalisé pour vos projets couture.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 scroll-hidden">
-                <h2 class="text-5xl font-bold mb-4 font-script">Portfolio</h2>
-                <div class="w-16 h-1 bg-black mx-auto mb-4"></div>
-                <p class="text-gray-600 text-lg">Découvrez mes dernières créations</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="img-zoom rounded-xl aspect-square relative group cursor-pointer scroll-hidden">
-                    <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&h=600&fit=crop" alt="Robe de soirée" class="w-full h-full object-cover rounded-xl">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 rounded-xl flex items-center justify-center">
-                        <span class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 font-semibold text-xl font-script">Robe de soirée</span>
-                    </div>
-                </div>
-                
-                <div class="img-zoom rounded-xl aspect-square relative group cursor-pointer scroll-hidden">
-                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=600&fit=crop" alt="Veste sur mesure" class="w-full h-full object-cover rounded-xl">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 rounded-xl flex items-center justify-center">
-                        <span class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 font-semibold text-xl font-script">Veste sur mesure</span>
-                    </div>
-                </div>
-                
-                <div class="img-zoom rounded-xl aspect-square relative group cursor-pointer scroll-hidden">
-                    <img src="https://images.unsplash.com/photo-1551488852-0801751ac1f4?w=600&h=600&fit=crop" alt="Transformation" class="w-full h-full object-cover rounded-xl">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 rounded-xl flex items-center justify-center">
-                        <span class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 font-semibold text-xl font-script">Transformation</span>
-                    </div>
-                </div>
-                
-                <div class="img-zoom rounded-xl aspect-square relative group cursor-pointer scroll-hidden">
-                    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&h=600&fit=crop" alt="Costume" class="w-full h-full object-cover rounded-xl">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 rounded-xl flex items-center justify-center">
-                        <span class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 font-semibold text-xl font-script">Costume</span>
-                    </div>
-                </div>
-                
-                <div class="img-zoom rounded-xl aspect-square relative group cursor-pointer scroll-hidden">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop" alt="Haute couture" class="w-full h-full object-cover rounded-xl">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 rounded-xl flex items-center justify-center">
-                        <span class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 font-semibold text-xl font-script">Haute couture</span>
-                    </div>
-                </div>
-                
-                <div class="img-zoom rounded-xl aspect-square relative group cursor-pointer scroll-hidden">
-                    <img src="https://images.unsplash.com/photo-1550614000-4b9519e02a48?w=600&h=600&fit=crop" alt="Accessoires" class="w-full h-full object-cover rounded-xl">
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 rounded-xl flex items-center justify-center">
-                        <span class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 font-semibold text-xl font-script">Accessoires</span>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-3 font-script">Robes de<br>cérémonie</h3>
+                    <p class="text-gray-600 text-lg">Mariage, soirée, événements : l'élégance sur mesure.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- À propos Section -->
-    <section id="apropos" class="py-20 bg-white">
+    <section id="apropos" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2 scroll-hidden">
@@ -722,26 +701,13 @@
                     </a>
                 </div>
                 
-                <!-- ============================================================
-                     POINT À MODIFIER : IMAGE DE LA DEVANTURE DU MAGASIN
-                     
-                     Remplacez le src ci-dessous par le chemin de votre image.
-                     
-                     Exemples :
-                     - Image locale : src="images/ma-boutique.jpg"
-                     - Image en ligne : src="https://votre-site.com/image.jpg"
-                     - Image ImgBB : src="https://i.ibb.co/XXXX/XXXX.jpg"
-                     
-                     Conseil : Utilisez une image avec une largeur d'environ 
-                     600-800px pour une meilleure qualité d'affichage.
-                ============================================================ -->
+                <!-- Image de la devanture du magasin -->
                 <div class="store-image-wrapper scroll-hidden">
                     <div class="store-image-container">
                         <img src="creafida-devanture.jpg"
                              alt="Devanture du magasin Creafida à Haccourt">
                     </div>
                 </div>
-                <!-- ==================== FIN DU POINT À MODIFIER ==================== -->
                 
             </div>
         </div>
@@ -750,8 +716,11 @@
     <!-- Footer -->
     <footer class="bg-black text-white py-8 border-t border-white border-opacity-10">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="text-3xl font-bold tracking-tighter mb-4 md:mb-0 font-script">
-                Créafida
+            <div class="mb-4 md:mb-0">
+                <div class="logo-text-nav" style="color: white;">
+                    CREAFIDA
+                    <span class="subtitle" style="color: rgba(255,255,255,0.7);">COUTURE</span>
+                </div>
             </div>
             <div class="text-gray-400 text-base mb-4 md:mb-0">
                 © 2026 Créafida. Tous droits réservés.
@@ -813,12 +782,11 @@
                     <label class="block text-left mb-2 font-semibold text-lg font-script">Service</label>
                     <select id="devisService" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black text-lg">
                         <option value="">Choisir un service</option>
-                        <option value="Retouche">Retouche</option>
-                        <option value="Transformation">Transformation</option>
+                        <option value="Retouches">Retouches</option>
+                        <option value="Transformations">Transformations</option>
                         <option value="Création sur mesure">Création sur mesure</option>
+                        <option value="Patronage / modélisme">Patronage / modélisme</option>
                         <option value="Robes de cérémonie">Robes de cérémonie</option>
-                        <option value="Modélisme">Modélisme</option>
-                        <option value="Conseil">Conseil</option>
                     </select>
                 </div>
                 <div class="mb-4">
