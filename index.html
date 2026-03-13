@@ -106,14 +106,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-        
         /* Button shine effect */
         .btn-shine {
             position: relative;
@@ -278,6 +270,70 @@
             cursor: pointer;
             color: #000;
         }
+
+        /* Logo styles - sans effet bouton */
+        .logo-img {
+            height: 50px;
+            width: 50px;
+            object-fit: contain;
+            border-radius: 50%;
+            display: block;
+        }
+        
+        .logo-hero {
+            width: 128px;
+            height: 128px;
+            object-fit: contain;
+            border-radius: 50%;
+            display: block;
+        }
+
+        /* Map container styles */
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: none;
+            filter: grayscale(20%);
+            transition: filter 0.3s ease;
+        }
+        
+        .map-container:hover iframe {
+            filter: grayscale(0%);
+        }
+
+        /* Store image container - À MODIFIER AVEC VOTRE IMAGE */
+        .store-image-wrapper {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .store-image-container {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .store-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* Optimisations pour netteté */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -285,8 +341,8 @@
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-white">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-3xl font-bold tracking-tighter animate-fade-in font-script">
-                Creafida
+            <div class="animate-fade-in">
+                <img src="https://i.ibb.co/HfVLPt82/creafida-logo.jpg" alt="Creafida Logo" class="logo-img">
             </div>
             <div class="hidden md:flex space-x-8 animate-fade-in delay-200 text-lg font-semibold">
                 <a href="#accueil" class="hover:text-gray-600 transition-colors relative group">
@@ -331,6 +387,9 @@
     <!-- Hero Section -->
     <section id="accueil" class="min-h-screen flex items-center justify-center pt-20 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
+            <div class="mb-8 flex justify-center">
+                <img src="https://i.ibb.co/HfVLPt82/creafida-logo.jpg" alt="Creafida Logo" class="logo-hero">
+            </div>
             <h1 class="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up font-script">
                 Creafida
             </h1>
@@ -359,7 +418,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1: Retouche -->
                 <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Retouche')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6 hover-scale">
+                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
                         </svg>
@@ -370,7 +429,7 @@
 
                 <!-- Service 2: Transformation -->
                 <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Transformation')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6 hover-scale">
+                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
                         </svg>
@@ -381,7 +440,7 @@
 
                 <!-- Service 3: Modélisme -->
                 <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Modélisme')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6 hover-scale">
+                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
                         </svg>
@@ -392,7 +451,7 @@
 
                 <!-- Service 4: Finition -->
                 <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Finition')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6 hover-scale">
+                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                         </svg>
@@ -403,7 +462,7 @@
 
                 <!-- Service 5: Conception -->
                 <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Conception')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6 hover-scale">
+                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
@@ -414,7 +473,7 @@
 
                 <!-- Service 6: Conseil -->
                 <div class="bg-gray-50 p-8 rounded-2xl hover-lift scroll-hidden cursor-pointer" onclick="openDevisModal('Conseil')">
-                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6 hover-scale">
+                    <div class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
@@ -500,17 +559,13 @@
                         Chaque pièce est travaillée avec minutie et passion pour garantir une qualité exceptionnelle et un résultat qui vous ressemble.
                     </p>
                     <div class="flex gap-8">
-                        <div class="text-center hover-scale cursor-pointer">
+                        <div class="text-center">
                             <span class="block text-4xl font-bold animate-float font-script">15+</span>
                             <span class="text-gray-500 text-lg">Années d'expérience</span>
                         </div>
-                        <div class="text-center hover-scale cursor-pointer">
+                        <div class="text-center">
                             <span class="block text-4xl font-bold animate-float font-script" style="animation-delay: 0.5s;">1000+</span>
                             <span class="text-gray-500 text-lg">Projets réalisés</span>
-                        </div>
-                        <div class="text-center hover-scale cursor-pointer">
-                            <span class="block text-4xl font-bold animate-float font-script" style="animation-delay: 1s;">100%</span>
-                            <span class="text-gray-500 text-lg">Satisfaction</span>
                         </div>
                     </div>
                 </div>
@@ -531,7 +586,7 @@
                 <div class="scroll-hidden">
                     <h3 class="text-3xl font-bold mb-6 font-script">Informations</h3>
                     <div class="space-y-6">
-                        <div class="flex items-center gap-4 group cursor-pointer hover-lift p-4 rounded-lg transition-all">
+                        <div class="flex items-center gap-4 group hover-lift p-4 rounded-lg transition-all">
                             <div class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center group-hover:bg-opacity-20 transition-all">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -544,7 +599,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-center gap-4 group cursor-pointer hover-lift p-4 rounded-lg transition-all">
+                        <div class="flex items-center gap-4 group hover-lift p-4 rounded-lg transition-all">
                             <div class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center group-hover:bg-opacity-20 transition-all">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
@@ -556,7 +611,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-center gap-4 group cursor-pointer hover-lift p-4 rounded-lg transition-all">
+                        <div class="flex items-center gap-4 group hover-lift p-4 rounded-lg transition-all">
                             <div class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center group-hover:bg-opacity-20 transition-all">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -569,7 +624,7 @@
                         </div>
                         
                         <!-- Horaires -->
-                        <div class="flex items-center gap-4 group cursor-pointer hover-lift p-4 rounded-lg transition-all" onclick="showHoursModal()">
+                        <div class="flex items-center gap-4 group hover-lift p-4 rounded-lg transition-all" onclick="showHoursModal()">
                             <div class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center group-hover:bg-opacity-20 transition-all">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -602,13 +657,57 @@
                     </button>
                 </form>
             </div>
+            
+            <!-- Google Maps Section avec emplacement direct -->
+            <div class="mt-16 max-w-5xl mx-auto scroll-hidden">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.6789654746567!2d5.686486315741123!3d50.73339497951384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0e5e8f8f8f8f8%3A0x0!2sCreafida!5e0!3m2!1sfr!2sbe!4v1600000000000!5m2!1sfr!2sbe&q=Creafida%20Haccourt" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Creafida,+Rue+de+Liège+153,+4684+Haccourt,+Belgique" 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                        Itinéraire vers Creafida
+                    </a>
+                </div>
+                
+                <!-- ============================================================
+                     POINT À MODIFIER : IMAGE DE LA DEVANTURE DU MAGASIN
+                     
+                     Remplacez le src ci-dessous par le chemin de votre image.
+                     
+                     Exemples :
+                     - Image locale : src="images/ma-boutique.jpg"
+                     - Image en ligne : src="https://votre-site.com/image.jpg"
+                     - Image ImgBB : src="https://i.ibb.co/XXXX/XXXX.jpg"
+                     
+                     Conseil : Utilisez une image avec une largeur d'environ 
+                     600-800px pour une meilleure qualité d'affichage.
+                ============================================================ -->
+                <div class="store-image-wrapper scroll-hidden">
+                    <div class="store-image-container">
+                        <img src="https://i.ibb.co/TBGPXbHM/IMG-6335.jpg" 
+                             alt="Devanture du magasin Creafida à Haccourt">
+                    </div>
+                </div>
+                <!-- ==================== FIN DU POINT À MODIFIER ==================== -->
+                
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-black text-white py-8 border-t border-white border-opacity-10">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="text-3xl font-bold tracking-tighter mb-4 md:mb-0 hover-scale cursor-pointer font-script">
+            <div class="text-3xl font-bold tracking-tighter mb-4 md:mb-0 font-script">
                 Creafida
             </div>
             <div class="text-gray-400 text-base mb-4 md:mb-0">
