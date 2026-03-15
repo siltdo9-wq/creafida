@@ -378,6 +378,20 @@
             window.location.href = `mailto:creafida@gmail.com?subject=${subject}&body=${body}`;
         }
     </script>
+<script>
+const thumb = document.getElementById("thumb-retouche");
+const video = document.getElementById("video-retouche");
+const play = document.getElementById("play-retouche");
 
+function startVideo(){
+    thumb.style.display = "none";
+    play.style.display = "none";
+    video.classList.remove("hidden");
+    video.play();
+}
+
+thumb.addEventListener("click", startVideo);
+play.addEventListener("click", startVideo);
+</script>
 </body>
 </html>
