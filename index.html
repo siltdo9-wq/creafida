@@ -162,11 +162,11 @@
 <section class="py-8 bg-gradient-to-b from-gray-50 to-white">
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-4 md:px-6">
-            
-            <!-- Vidéo atelier : prend 2 colonnes sur desktop -->
+
+            <!-- Vidéo atelier : horizontal, remplit le carré -->
             <div class="md:col-span-2 rounded-2xl overflow-hidden shadow-lg bg-white">
-                <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 ratio -->
-                    <video class="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
+                <div class="relative w-full h-64 md:h-80 lg:h-96">
+                    <video class="absolute inset-0 w-full h-full object-cover rounded-2xl"
                            autoplay
                            muted
                            loop
@@ -177,14 +177,16 @@
                 </div>
             </div>
 
-            <!-- Photo réalisation : taille adaptée au contenu -->
+            <!-- Photo réalisation : même hauteur que la vidéo -->
             <div class="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <img src="Creafida.JPG" alt="Réalisation" class="w-full h-auto object-cover rounded-2xl">
+                <div class="relative w-full h-64 md:h-80 lg:h-96">
+                    <img src="realisations.jpg" alt="Réalisation" class="absolute inset-0 w-full h-full object-cover rounded-2xl">
+                </div>
             </div>
-            
+
         </div>
     </div>
-</section> 
+</section>
 <!-- À PROPOS DE MOI -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-6 max-w-3xl text-center">
