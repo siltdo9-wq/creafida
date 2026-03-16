@@ -160,12 +160,12 @@
 
  <!-- 3. PHOTOS PRINCIPALES : Vidéo atelier + Réalisation -->
 <section class="py-8 bg-gradient-to-b from-gray-50 to-white">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-4 md:px-6">
-            
-            <!-- Vidéo atelier : prend 2 colonnes sur desktop -->
-            <div class="md:col-span-2 rounded-2xl overflow-hidden shadow-lg bg-white">
-                <video class="w-full h-auto rounded-2xl"
+    <div class="container mx-auto px-6 max-w-5xl">
+        <div class="flex flex-col gap-6 md:gap-8">
+
+            <!-- Vidéo atelier -->
+            <div class="rounded-2xl overflow-hidden shadow-lg bg-white">
+                <video class="w-full max-h-[400px] h-auto rounded-2xl"
                        autoplay
                        muted
                        loop
@@ -176,14 +176,14 @@
                 </video>
             </div>
 
-            <!-- Photo réalisation : taille adaptée au contenu -->
+            <!-- Photo réalisation -->
             <div class="rounded-2xl overflow-hidden shadow-lg bg-white">
                 <img src="realisations.jpg" alt="Réalisation" class="w-full h-auto rounded-2xl">
             </div>
-            
+
         </div>
     </div>
-</section> 
+</section>
 <!-- À PROPOS DE MOI -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-6 max-w-3xl text-center">
